@@ -1,6 +1,6 @@
 // contains clubhouse
 const API_BASE    = 'https://api.clubhouse.io/api/v1';
-const TOKEN_PARAM = '?token={{setting.token}}';
+const TOKEN_PARAM = '?token=';
 const PROJECTS    = '/projects';
 const STORIES     = '/stories';
 const WORKFLOWS   = '/workflows';
@@ -8,11 +8,14 @@ const USERS       = '/users';
 
 var clubhouse = {
   init: (client) => {
-    clubhouse.client = client;
-    return clubhouse;
+    client.metadata().then(function(metadata) {
+      clubhouse.client = client;
+      clubhouse.token = TOKEN_PARAM + metadata.settings.token;
+      return clubhouse;
+    });
   },
   request: (urlParams, settings = {}) => {
-    settings.url = API_BASE + urlParams + TOKEN_PARAM;
+    settings.url = API_BASE + urlParams + clubhouse.token;
     settings.secure = true;
     return clubhouse.client.request(settings);
   },
