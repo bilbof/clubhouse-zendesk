@@ -1,0 +1,12 @@
+<div class="clubhouse-main ch-story">
+  <a href="https://app.clubhouse.io/story/{{id}}" target="_blank" rel="noreferrer nofollow">
+    <h1 class="u-beta u-semibold">{{name}}</h1>
+  </a>
+  <p class="status">Status: {{status.name}}</p>
+  <p class="status">Owner: {{owner.name}}</p>
+  <p class="status">Project: <span style="color:{{project.color}};">{{project.name}}</span></p>
+  <div class="l-wrapper--370">
+    <h2 class="u-gamma u-semibold">Description</h2>
+    <p class="description">{{description}}</p>
+  </div>
+</div>

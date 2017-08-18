@@ -1,0 +1,32 @@
+<div class="clubhouse-main">
+  <h1 class="u-beta u-semibold">Create New Story</h1>
+  <form class="l-wrapper--370">
+    <div class="c-txt u-mb-sm">
+      <label class="c-txt__label" for="name">Story Name</label>
+      <input class="c-txt__input" placeholder="Name" id="ch-name">
+      <small class="c-txt__message" id="ch-name-error">Name is required</small>
+    </div>
+    <div class="c-txt u-mb-sm">
+      <label class="c-txt__label" for="description">Description</label>
+      <textarea id="ch-description" class="c-txt__input" placeholder="Description"></textarea>
+      <a href="#" class="u-epsilon" id="insert-fields">Insert fields from ticket</a>
+    </div>
+    <div class="c-txt u-mb-sm">
+      <label class="c-txt__label" for="Project">Project</label>
+      <select id="ch-project" class="c-txt__input c-txt__input--select">
+        {{#each projects}}
+          <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="c-txt u-mb-sm l-flag--bottom">
+      <button type="submit" name="button" class="c-btn c-btn--medium c-btn--primary" id="create">
+        Create New Story
+      </button>
+      <button type="submit" name="button" class="c-btn c-btn--medium" id="cancel">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,14 @@
+{
+  "app": {
+    "short_description": "Connect Zendesk tickets to Clubhouse stories.",
+    "name": "Clubhouse integration",
+    "long_description": "Save project management time by connecting Zendesk tickets to Clubhouse stories. This app enables you to create and view Clubhouse stories from within Zendesk. Connect support tickets with engineering work in a couple of clicks.",
+    "installation_instructions": "Install the app into your Zendesk, and add a Clubhouse API token. Clubhouse API tokens can be generated in Clubhouse > Settings > API Tokens." ,
+    "parameters": {
+      "token": {
+        "label": "Clubhouse API Token",
+        "placeholder": "Found in Clubhouse > Settings > API Tokens."
+      }
+    }
+  }
+}

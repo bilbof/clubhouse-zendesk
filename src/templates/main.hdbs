@@ -1,0 +1,14 @@
+<div class="clubhouse-main u-m-lg">
+  <div class="l-flag">
+    <div class="u-mb-sm">
+      <button class="c-btn c-btn--medium c-btn--pill c-btn--full c-btn--primary" id="create-new">
+        Create New Story
+      </button>
+    </div>
+    <div class="u-mb-sm">
+      <button class="c-btn c-btn--medium c-btn--pill c-btn--full" id="connect-new">
+        Connect To Existing Story
+      </button>
+    </div>
+  </div>
+</div>

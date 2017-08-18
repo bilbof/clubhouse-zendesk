@@ -1,0 +1,26 @@
+{
+  "name": "Clubhouse integration",
+  "author": {
+    "name": "Bill Franklin",
+    "email": "bill@chartmogul.com",
+    "url": "http://www.billfranklin.eu"
+  },
+  "defaultLocale": "en",
+  "private": false,
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/index.html"
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0",
+  "domainWhitelist": ["api.clubhouse.io", "clubhouse.io"],
+  "parameters": [
+    {
+      "name": "token",
+      "type": "password",
+      "secure": true,
+      "required": true
+    }
+  ]
+}

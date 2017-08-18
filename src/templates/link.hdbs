@@ -1,0 +1,14 @@
+<div class="clubhouse-main u-m-lg">
+    <h1 class="u-beta u-semibold">Connect to Story</h1>
+    <div class="c-txt u-mb-sm" id="ch-story-error">
+      <label class="c-txt__label" for="story id">Enter a Story ID</label>
+      <input class="c-txt__input" placeholder="ID" id="ch-story-id">
+      <small class="c-txt__message" id="ch-name-error">Valid Story ID is required</small>
+    </div>
+    <div class="u-mb-sm">
+      <button class="c-btn c-btn--medium c-btn--pill c-btn--full" id="link">
+        Connect Story
+      </button>
+    </div>
+  </div>
+</div>
