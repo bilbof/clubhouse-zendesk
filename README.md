@@ -4,6 +4,8 @@
 
 This contains an **unofficial** Clubhouse integration with Zendesk, that you can add to your own Zendesk instances. This app was developed by a third party and is not associated with Clubhouse (other than using their API).
 
+You can install the app into your Zendesk from the [Zendesk Apps Marketplace](https://www.zendesk.com/apps/support/clubhouseio).
+
 This app was built using Zendesk's [App Scaffold](https://github.com/zendesk/app_scaffold).
 
 ## Screenshots
