@@ -32,7 +32,7 @@ class TicketSidebar {
     return this.client.request({
       url: '/api/v2/tickets/'+ticket.id+'/tags.json',
       method: 'PUT',
-      data: { "tags": ['clubhouse_story_'+id] }
+      data: { "tags": ['clubhouse_escalated', 'clubhouse_story_'+id] }
     });
   }
 
