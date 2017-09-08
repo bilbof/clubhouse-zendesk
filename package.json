@@ -43,6 +43,7 @@
     "webpack": "^3.5.1"
   },
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "showdown": "^1.7.3"
   }
 }

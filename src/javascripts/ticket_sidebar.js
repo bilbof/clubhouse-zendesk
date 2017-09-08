@@ -1,12 +1,20 @@
 import View from 'view';
 import Storage from 'storage';
 import clubhouse from './clubhouse.js';
+import showdown from 'showdown';
 
 class TicketSidebar {
   constructor(client, data) {
     this.client = client;
     this._metadata = data.metadata;
     this._context = data.context;
+
+    // prevent carriage return characters from being stripped by jQuery
+    $.valHooks.textarea = {
+      get: function( elem ) {
+        return elem.value.replace( /\r?\n/g, "\r\n" );
+      }
+    };
 
     this.storage = new Storage(this._metadata.installationId);
     this.view = new View();
@@ -111,6 +119,9 @@ class TicketSidebar {
       external_id: "zendesk-" + this.ticket.id
     }
 
+    var url = "https://"+this.ticket.brand.subdomain+".zendesk.com/agent/tickets/"+this.ticket.id;
+    story.description += "\n\nZendesk Ticket: " + url;
+
     if (!story.name) {
       return $('#ch-name').parent().addClass('has-error')
     }
@@ -134,6 +145,14 @@ class TicketSidebar {
     }).catch(error => {
       this.client.invoke('notify', 'Error getting comment: ' + error.statusText, 'error');
     })
+  }
+
+  markdownToHTML(markdown){
+    let converter = new showdown.Converter({
+      'simplifiedAutoLink': true,
+      'literalMidWordUnderscores': true
+    })
+    return converter.makeHtml(markdown);
   }
 
   getStoryStatus(story, workflows) {
@@ -160,7 +179,8 @@ class TicketSidebar {
       story.status = this.getStoryStatus(story, results[1][0]);
       story.owner = results[2];
       this.view.switchTo('story', story);
-      this.client.invoke('resize', { height: '325px', width: '100%' });
+      $('.description').html(this.markdownToHTML(story.description))
+      this.client.invoke('resize', { height: '350px', width: '100%' });
     })
     .catch(error =>{
       this.client.invoke('notify', 'Error rendering story: ' + error.statusText, 'error');
