@@ -12,7 +12,7 @@
       "ticket_sidebar": "assets/index.html"
     }
   },
-  "version": "1.0",
+  "version": "1.0.1",
   "frameworkVersion": "2.0",
   "domainWhitelist": ["api.clubhouse.io", "clubhouse.io"],
   "parameters": [
