@@ -1,6 +1,6 @@
 {
   "name": "clubhouse-zendesk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Connect Zendesk tickets to Clubhouse stories",
   "scripts": {
     "build": "webpack -p",
