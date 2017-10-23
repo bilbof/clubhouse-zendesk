@@ -1,4 +1,6 @@
 {
   "subdomain": "chartmogul",
-  "username": "bill@chartmogul.com"
+  "username": "bill@chartmogul.com",
+  "zat_latest": "2.7.0",
+  "zat_update_check": "2017-10-20"
 }

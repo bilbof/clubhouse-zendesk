@@ -75,6 +75,7 @@ class TicketSidebar {
       this.ticket.projects = projects;
       this.view.switchTo('create', this.ticket);
       this.client.invoke('resize', { height: '550px', width: '100%' });
+      $('#ch-description').keyup(this.updateCharCount)
       $('#create').click(this.createStory.bind(this));
       $('#cancel').click(this.renderMain.bind(this));
       $('#insert-fields').click(this.insertDescription.bind(this));
@@ -108,6 +109,11 @@ class TicketSidebar {
     $('#cancel').click(this.renderMain.bind(this));
   }
 
+  getTicketLink() {
+    var url = "https://"+this.ticket.brand.subdomain+".zendesk.com/agent/tickets/"+this.ticket.id;
+    return "\n\nZendesk Ticket: " + url;
+  }
+
   createStory(e) {
     e.preventDefault()
     $('#ch-name').parent().removeClass('has-error')
@@ -119,8 +125,7 @@ class TicketSidebar {
       external_id: "zendesk-" + this.ticket.id
     }
 
-    var url = "https://"+this.ticket.brand.subdomain+".zendesk.com/agent/tickets/"+this.ticket.id;
-    story.description += "\n\nZendesk Ticket: " + url;
+    story.description += this.getTicketLink()
 
     if (!story.name) {
       return $('#ch-name').parent().addClass('has-error')
@@ -133,7 +138,8 @@ class TicketSidebar {
       this.renderStory.bind(this)(result);
     })
     .catch(error => {
-      this.client.invoke('notify', 'Error creating Story: ' + error.statusText, 'error');
+      const err = error.statusText || error
+      this.client.invoke('notify', 'Error creating Story: ' + err, 'error');
     })
   }
 
@@ -142,9 +148,14 @@ class TicketSidebar {
     .then(comment =>{
       $('#ch-name').val(this.ticket.subject)
       $('#ch-description').val(comment.body)
+      this.updateCharCount()
     }).catch(error => {
       this.client.invoke('notify', 'Error getting comment: ' + error.statusText, 'error');
     })
+  }
+
+  updateCharCount(){
+    $('#char-count').text(1200 - $('#ch-description').val().length);
   }
 
   markdownToHTML(markdown){
