@@ -18,4 +18,11 @@ section[data-main] {
       font-weight: bold;
     }
   }
+
+  #char-count {
+    display: inline;
+    text-align: right;
+    float: right;
+    padding-right: 3px;
+  }
 }

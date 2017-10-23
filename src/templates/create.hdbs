@@ -10,6 +10,7 @@
       <label class="c-txt__label" for="description">Description</label>
       <textarea id="ch-description" class="c-txt__input" placeholder="Description"></textarea>
       <a href="#" class="u-epsilon" id="insert-fields">Insert fields from ticket</a>
+      <p href="#" class="u-epsilon u-1/3" id="char-count">1500</p>
     </div>
     <div class="c-txt u-mb-sm">
       <label class="c-txt__label" for="Project">Project</label>

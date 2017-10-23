@@ -20,7 +20,13 @@ var clubhouse = {
     list: () => clubhouse.request(PROJECTS)
   },
   stories: {
-    create: (story) => clubhouse.request(STORIES, {method: 'POST', data: story}),
+    create: (story) => {
+      if (story.description.length > 1200) {
+        const remainingChars = -(1200 - story.description.length)
+        return Promise.reject('Story description is too long. Delete '+remainingChars+' characters and try again.')
+      }
+      return clubhouse.request(STORIES, {method: 'POST', data: story})
+    },
     fetch: (id) => clubhouse.request(STORIES + '/' + id),
     search: (text) => clubhouse.request(STORIES + '/search', {data: { 'text': text } }),
     list: (projectID) => clubhouse.request(PROJECTS + '/' + projectID + '/stories')
